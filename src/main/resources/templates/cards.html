@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer card2card</title>
+	<style>
+		body {font-family: Verdana,Arial,sans-serif;}
+		table, td {border: solid 1px;   border-collapse: collapse; padding: 5px; vertical-align: top; text-align: center;}
+		div {padding: 10px;}
+		div.links {padding: 10px; margin: 10px; align-content: center; width: 100%; border-top: black 1px solid;}
+		span.success {color:darkgreen;font-weight: bold;}
+		span.error {color:red;font-weight: bold;}
+		input {width:200px;margin: 10px;}
+		input.big {width:300px;}
+		input.small {width:50px;}
+	</style>
+</head>
+<body>
+<h1>card2card</h1>
+<h2>cards info</h2>
+<table>
+<tr>
+	<td>Id</td>
+	<td>Number</td>
+	<td>Date exp.</td>
+	<td>CVV</td>
+	<td>Amount</td>
+	<td>User</td>
+</tr>
+	<tr th:each="card : ${cardslist}">
+		<td th:text="${card.id}"></td>
+		<td th:text="${card.number}"></td>
+		<td th:text="${card.date_expiration}"></td>
+		<td th:text="${card.cvv}"></td>
+		<td th:text="${card.amount}"></td>
+		<td th:text="${card.getUser().toString()}"></td>
+	</tr>
+</table>
+<div class="links">
+	<a href="http://localhost:8080">New transfer</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="http://localhost:8080/cards">Cards</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+	<a href="http://localhost:8080/transfers">Transfers</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+</div>
+</body>
+</html>
